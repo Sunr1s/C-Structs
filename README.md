@@ -29,3 +29,25 @@ extern List *addbyid_list(List *list, size_t index, uint8_t *format, ...); - Add
 extern _Bool elemin_list(List *list, uint8_t *format, ...); - Check if list have element
 
 ```
+# HashTable
+As we know HashTable based on which of the structures, like list or tree. In this case HashTable bulid on tree, witch we write already. So code contains tree.h and showing , how to use this code as Lib.
+This is func, witch create hash taked in book K&R. This is very light hash interpritait method, and not orintable on cryptographic resistance against hacking. Do not recomendateusing in hight loaded projects. It takes each character of the string and adds 31 times the number of the character's place in the string, returning the remainder after dividing the result by the size of the string.
+```
+static uint32_t _strhash(uint8_t *s, size_t size){
+	uint32_t hashval;
+	for (hashval = 0; *s != '\0'; ++s){
+		hashval = *s + 31 *hashval;
+	}
+	return hashval % size;
+}
+```
+```
+extern HashTab *new_hastab(size_t size, vtype_tree_t key, vtype_tree_t value); - Create new HashTable struct
+extern void free_hastab(HashTab *hashtab); - This function clean memory and delete genesis node
+
+extern value_tree_t get_hashtab(HashTab *hashtab, void *key); - Return elements from table
+extern void set_hashtab(HashTab *hashtab, void *key, void *value); - Insert elements to table
+extern void del_hashtab(HashTab *hashtab, void *key); - Delete element in table
+extern _Bool in_hashtab(HashTab *hashtab, void *key); - Check if tabel contain element
+
+extern void print_hashtab(HashTab *hashtab); - Print table
