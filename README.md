@@ -14,3 +14,18 @@ extern void print_tree(Tree *tree); - Func for tree preaty print
 extern void print_tree_as_list(Tree *tree); - Func for tree print as list
 
 ```
+# List
+```
+extern List *new_list(uint8_t *format, ...); - Create new list struct
+extern void free_list(List *list); - Free memory and gelete genesis node
+
+extern List *push_list(List *list, uint8_t *format, ...); - Add data to list
+extern List *pop_list(List *list); - Take data from list
+
+extern void print_list(List *list); - Print list
+
+extern List *delbyid_list(List *list, size_t index); - Delete node with spesial id
+extern List *addbyid_list(List *list, size_t index, uint8_t *format, ...); - Add node with spesial id
+extern _Bool elemin_list(List *list, uint8_t *format, ...); - Check if list have element
+
+```
