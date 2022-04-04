@@ -2,20 +2,15 @@
 Three most popular data structures wroted on clean C. Can be used like library. 
 # BinaryTree
 
-extern Tree *new_tree(vtype_tree_t key, vtype_tree_t value);
-extern void free_tree(Tree *tree);
+extern Tree *new_tree(vtype_tree_t key, vtype_tree_t value); - This function generate new tree struct
+extern void free_tree(Tree *tree); - This function clean memory and delete genesis node
+extern value_tree_t get_tree(Tree *tree, void *key); - Recursive function for go on tree and print data
+extern void set_tree(Tree *tree, void *key, void *value); - Add new data to tree
+extern void del_tree(Tree *tree, void *key); - Delete datas from tree
+extern _Bool in_tree(Tree *tree, void *key); - Check if some data in tree , return true if have
 
-extern value_tree_t get_tree(Tree *tree, void *key);
-extern void set_tree(Tree *tree, void *key, void *value);
-extern void del_tree(Tree *tree, void *key);
-extern _Bool in_tree(Tree *tree, void *key);
-
-extern void *decimal(int64_t x);
-extern void *string(uint8_t *x);
-extern void *real(double x);
-
-extern void print_tree(Tree *tree);
-extern void print_tree_as_list(Tree *tree);
+extern void print_tree(Tree *tree); - Func for tree preaty print
+extern void print_tree_as_list(Tree *tree); - Func for tree print as list
 
 static tree_node *_new_node(vtype_tree_t tkey, vtype_tree_t tvalue, void *key, void *value);
 static void _set_tree(tree_node *node, vtype_tree_t tkey, vtype_tree_t tvalue, void *key, void *value);
